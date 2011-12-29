@@ -1,0 +1,17 @@
+{
+  "author": "Remy Sharp",
+  "name": "proxy",
+  "description": "Simple proxy that reads a config.json file",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "private": true,
+  "main": "server.js",
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": {
+    "http-proxy": ">=0.8.0"
+  }
+}
