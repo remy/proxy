@@ -7,10 +7,11 @@ var http = require('http'),
       hostnameOnly: true,
       router: {}
     },
+    port = process.env.PORT || process.argv[2] || 80,
     proxyServer = httpProxy.createServer(options);
 
 function loadConfig() {
-  util.log('config updated');
+  util.log('Reading config file');
   fs.readFile(configFile, 'utf8', function (err, data) {
     if (!err) {
       try {
@@ -22,7 +23,7 @@ function loadConfig() {
       proxyServer.close();
       console.dir(options.router);
       proxyServer = httpProxy.createServer(options);
-      proxyServer.listen(process.env.PORT || 80);
+      proxyServer.listen(port);
     }
   });
 }
@@ -32,5 +33,6 @@ fs.watchFile(configFile, function (curr,prev) {
   loadConfig();
 });
 
-proxyServer.listen(process.env.PORT || 80);
+proxyServer.listen(port);
+util.log('Listening on port '+ port);
 loadConfig();
