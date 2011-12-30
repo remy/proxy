@@ -1,1 +1,4 @@
-{ 'localhost:8001/mozes': 'localhost:8000', 'localhost/ll': 'localhost:8080' }
+{ 
+  'myclient.example.com' : 'localhost:8000', 
+  'mysite.example.com'   : 'localhost:8001' 
+}
